@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Promo QR MP — Disponible de presupuesto</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-primary: #00548A;
+    --color-accent: #F1891B;
+    --color-bg: #F5F5F5;
+    --color-surface: #FFFFFF;
+    --color-text: #333333;
+    --color-text-inv: #FFFFFF;
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    --radius: 6px;
+    --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--color-bg); color: var(--color-text);
+    font-family: var(--font-body); -webkit-font-smoothing: antialiased;
+  }
+  header {
+    background: var(--color-primary); color: var(--color-text-inv);
+    padding: 20px 16px; text-align: center;
+  }
+  header h1 {
+    font-family: var(--font-heading); font-weight: 800; font-size: 1.3rem; margin: 0 0 4px;
+  }
+  header p { margin: 0; font-size: 0.85rem; opacity: 0.9; }
+  main { max-width: 480px; margin: 0 auto; padding: 20px 16px 40px; }
+  .card {
+    background: var(--color-surface); border-top: 4px solid var(--color-accent);
+    border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 24px 20px; margin-bottom: 16px; text-align: center;
+  }
+  .estado {
+    display: inline-block; font-family: var(--font-heading); font-weight: 700;
+    font-size: 0.75rem; letter-spacing: 0.05em; padding: 4px 12px; border-radius: 20px;
+    background: #EAF4EC; color: #2E7D32;
+    margin-bottom: 12px;
+  }
+  .disponible-label { font-size: 0.85rem; color: #777; margin-bottom: 4px; }
+  .disponible-monto {
+    font-family: var(--font-heading); font-weight: 800; font-size: 2.4rem;
+    color: var(--color-primary); line-height: 1.1;
+  }
+  .barra-wrap { background: #e6e6e6; border-radius: 20px; height: 10px; margin: 18px 0 6px; overflow: hidden; }
+  .barra { height: 100%; background: #F1891B; width: 69.4%; border-radius: 20px; }
+  .barra-txt { font-size: 0.75rem; color: #888; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
+  .mini { background: var(--color-surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px; }
+  .mini-label { font-size: 0.72rem; color: #888; margin-bottom: 4px; }
+  .mini-monto { font-family: var(--font-heading); font-weight: 700; font-size: 1.05rem; color: var(--color-primary); }
+  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+  th { background: var(--color-primary); color: var(--color-text-inv); padding: 8px; text-align: left; font-weight: 600; }
+  td { padding: 8px; border-bottom: 1px solid #eee; }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  tr:nth-child(even) td { background: var(--color-bg); }
+  .cond { font-size: 0.78rem; color: #777; line-height: 1.5; margin-top: 18px; }
+  footer {
+    background: #333333; color: #ccc; text-align: center; padding: 14px;
+    font-size: 0.72rem;
+  }
+  .actualizado { font-size: 0.75rem; color: #999; margin-top: 10px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Promo QR Mercado Pago</h1>
+  <p>Promo QR MP Julio 2026</p>
+</header>
+<main>
+  <div class="card">
+    <span class="estado">DISPONIBLE</span>
+    <div class="disponible-label">Disponible del presupuesto mensual</div>
+    <div class="disponible-monto">$4.898.001</div>
+    <div class="barra-wrap"><div class="barra"></div></div>
+    <div class="barra-txt">69.4% del presupuesto usado</div>
+    <div class="actualizado">Última actualización: 14/07/2026 11:58 hs (Arg.)</div>
+  </div>
+
+  <div class="grid">
+    <div class="mini">
+      <div class="mini-label">Presupuesto mensual</div>
+      <div class="mini-monto">$16.000.000</div>
+    </div>
+    <div class="mini">
+      <div class="mini-label">Aplicado a la fecha</div>
+      <div class="mini-monto">$11.101.999</div>
+    </div>
+  </div>
+
+  <div class="card" style="text-align:left; margin-top:16px;">
+    <div class="mini-label" style="margin-bottom:10px;">Descuentos aplicados por día</div>
+    <table>
+      <thead><tr><th>Día</th><th style="text-align:right;">Descuento (total campaña)</th></tr></thead>
+      <tbody><tr><td>01/07/2026</td><td class='num'>$513.960</td></tr><tr><td>03/07/2026</td><td class='num'>$241.542</td></tr><tr><td>06/07/2026</td><td class='num'>$1.391.857</td></tr><tr><td>08/07/2026</td><td class='num'>$1.697.122</td></tr><tr><td>13/07/2026</td><td class='num'>$1.706.519</td></tr></tbody>
+    </table>
+  </div>
+
+  <div class="cond">
+    <strong>Condiciones de la campaña:</strong> tope de reintegro por cliente $200,000
+    &middot; costo compartido 50%/50% Ibaceta-MP &middot; medio de pago: QR dinero en cuenta
+    &middot; vigencia 2026-07-01 al 2026-07-31 o hasta agotar presupuesto
+    &middot; días de campaña: lunes y miércoles.
+  </div>
+</main>
+<footer>Ibaceta · Herramienta interna de consulta — no válido como comprobante fiscal</footer>
+</body>
+</html>

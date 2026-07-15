@@ -66,6 +66,10 @@
     font-size: 0.72rem;
   }
   .actualizado { font-size: 0.75rem; color: #999; margin-top: 10px; }
+  #aviso-desactualizado {
+    display: none; background: #FDECEA; border: 1px solid #D9342B; border-radius: var(--radius);
+    padding: 10px 14px; font-size: 0.8rem; color: #8a1f16; line-height: 1.4; margin-bottom: 16px;
+  }
 </style>
 </head>
 <body>
@@ -74,13 +78,17 @@
   <p>Promo QR MP Julio 2026</p>
 </header>
 <main>
+  <div id="aviso-desactualizado" data-actualizado="2026-07-15T14:35:20.254896">
+    ⚠ <strong>Este dato podría estar desactualizado</strong> — la tarea automática no actualizó la página hoy como debería.
+    Avisale a Marcia antes de confiar en este número para presupuestar una venta.
+  </div>
   <div class="card">
     <span class="estado">DISPONIBLE</span>
     <div class="disponible-label">Disponible del presupuesto mensual</div>
     <div class="disponible-monto">$4.508.101</div>
     <div class="barra-wrap"><div class="barra"></div></div>
     <div class="barra-txt">71.8% del presupuesto usado</div>
-    <div class="actualizado">Última actualización: 15/07/2026 14:30 hs (Arg.)</div>
+    <div class="actualizado">Última actualización: 15/07/2026 14:35 hs (Arg.)</div>
   </div>
 
   <div class="grid">
@@ -102,5 +110,26 @@
   </div>
 </main>
 <footer>Ibaceta · Herramienta interna de consulta — no válido como comprobante fiscal</footer>
+
+<script>
+  // Chequeo de "dato desactualizado" del lado del navegador -- no depende de
+  // que una corrida futura publique de nuevo (si el script viene fallando en
+  // silencio, esta página vieja seguiría mostrando un número como si fuera
+  // válido sin esto). Regla: la tarea corre lunes/miércoles cada 30min y
+  // martes/jueves a las 9am -- si hoy es lunes a jueves y ya pasaron más de
+  // 2 horas desde las 9:00 sin que el dato sea de HOY, algo se rompió.
+  (function () {
+    var el = document.getElementById('aviso-desactualizado');
+    var actualizado = new Date(el.getAttribute('data-actualizado'));
+    var ahora = new Date();
+    var diaSemana = ahora.getDay(); // 0=dom, 1=lun, 2=mar, 3=mie, 4=jue, 5=vie, 6=sab
+    var esDiaConCorrida = diaSemana >= 1 && diaSemana <= 4;
+    var pasadasLas11 = ahora.getHours() >= 11;
+    var esHoy = actualizado.toDateString() === ahora.toDateString();
+    if (esDiaConCorrida && pasadasLas11 && !esHoy) {
+      el.style.display = 'block';
+    }
+  })();
+</script>
 </body>
 </html>

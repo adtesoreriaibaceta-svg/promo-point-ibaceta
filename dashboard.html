@@ -780,12 +780,13 @@
 
         function actualizarChartProcesadoras() {
             // Orden fijo de portales para consistencia visual
-            const ORDEN_PORTALES = ['POINT', 'NARANJA', 'CAMPAÑA QR - POINT', 'FISERV'];
+            const ORDEN_PORTALES = ['POINT', 'NARANJA', 'CAMPAÑA QR - POINT', 'FISERV', 'PAYWAY'];
             const COLORES_PORTALES = {
                 'POINT': '#00548A',
                 'NARANJA': '#F1891B',
                 'CAMPAÑA QR - POINT': '#00796B',
-                'FISERV': '#E64A19'
+                'FISERV': '#E64A19',
+                'PAYWAY': '#5C35CC'
             };
 
             const resumen = {};
@@ -801,7 +802,7 @@
 
             const ctx = document.getElementById('chart-procesadoras').getContext('2d');
 
-            const coloresBtn = { 'POINT': '#00548A', 'NARANJA': '#F1891B', 'CAMPAÑA QR - POINT': '#00796B', 'FISERV': '#E64A19' };
+            const coloresBtn = { 'POINT': '#00548A', 'NARANJA': '#F1891B', 'CAMPAÑA QR - POINT': '#00796B', 'FISERV': '#E64A19', 'PAYWAY': '#5C35CC' };
             const _posicionar = () => posicionarBotonesEnBarras(labels, coloresBtn);
 
             if (charts.procesadoras) {
@@ -887,7 +888,8 @@
             meta.data.forEach((bar, i) => {
                 const portal = labels[i];
                 const btn = document.createElement('button');
-                btn.textContent = 'Ver ' + portal.replace('CAMPAÑA QR - POINT', 'QR');
+                const ALIAS_BTN = { 'CAMPAÑA QR - POINT': 'QR', 'PAYWAY': 'PROMO PAYWAY' };
+                btn.textContent = 'Ver ' + (ALIAS_BTN[portal] || portal);
                 btn.style.cssText = `
                     position:absolute;
                     left:${canvasOffsetX + bar.x}px;
@@ -1176,7 +1178,9 @@
 
             html += '</table>';
 
-            document.getElementById('modal-titulo').textContent = `📊 ${procesadora} - Análisis por Cuota`;
+            const ALIAS_MODAL = { 'CAMPAÑA QR - POINT': 'QR', 'PAYWAY': 'PROMO PAYWAY' };
+            const nombreModal = ALIAS_MODAL[procesadora] || procesadora;
+            document.getElementById('modal-titulo').textContent = `📊 ${nombreModal} - Análisis por Cuota`;
             document.getElementById('modal-contenido').innerHTML = html;
             document.getElementById('modal-procesadora').classList.add('active');
         }

@@ -53,6 +53,7 @@
   .barra-txt { font-size: 0.75rem; color: #888; }
   .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 4px; }
   .mini { background: var(--color-surface); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px; }
+  .mini-full { grid-column: 1 / -1; text-align: center; }
   .mini-label { font-size: 0.72rem; color: #888; margin-bottom: 4px; }
   .mini-monto { font-family: var(--font-heading); font-weight: 700; font-size: 1.05rem; color: var(--color-primary); }
   table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
@@ -78,7 +79,7 @@
   <p>Promo QR MP Julio 2026</p>
 </header>
 <main>
-  <div id="aviso-desactualizado" data-actualizado="2026-07-22T09:11:13.363934">
+  <div id="aviso-desactualizado" data-actualizado="2026-07-22T09:17:44.920631">
     ⚠ <strong>Este dato podría estar desactualizado</strong> — la tarea automática no actualizó la página hoy como debería.
     Avisale a Marcia antes de confiar en este número para presupuestar una venta.
   </div>
@@ -88,7 +89,7 @@
     <div class="disponible-monto">$933.611</div>
     <div class="barra-wrap"><div class="barra"></div></div>
     <div class="barra-txt">94.2% del presupuesto usado</div>
-    <div class="actualizado">Última actualización: 22/07/2026 09:11 hs (Arg.)</div>
+    <div class="actualizado">Última actualización: 22/07/2026 09:17 hs (Arg.)</div>
   </div>
 
   <div class="grid">
@@ -99,6 +100,10 @@
     <div class="mini">
       <div class="mini-label">Aplicado a la fecha</div>
       <div class="mini-monto">$15.066.389</div>
+    </div>
+    <div class="mini mini-full">
+      <div class="mini-label">Cupones utilizados este mes</div>
+      <div class="mini-monto">118</div>
     </div>
   </div>
 
